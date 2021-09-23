@@ -14,7 +14,8 @@ class HeaderController extends Controller
      */
     public function index()
     {
-        //
+        $dataHeader = Header::all();
+        return view('backoffice.header.all', compact('dataHeader'));
     }
 
     /**
@@ -46,7 +47,7 @@ class HeaderController extends Controller
      */
     public function show(Header $header)
     {
-        //
+        return view('backoffice.header.show', compact('header'));
     }
 
     /**
@@ -57,7 +58,7 @@ class HeaderController extends Controller
      */
     public function edit(Header $header)
     {
-        //
+        return view('backoffice.header.edit', compact('header'));
     }
 
     /**
@@ -69,7 +70,20 @@ class HeaderController extends Controller
      */
     public function update(Request $request, Header $header)
     {
-        //
+        request()->validate([
+            "logo"=>["required"],
+            "img1"=>["required"],
+            "img2"=>["required"],
+            "img3"=>["required"]
+        ]);
+        
+        $header = new Header();
+        $header->logo = $request->logo;
+        $header->img1 = $request->img1;
+        $header->img2 = $request->img2;
+        $header->img3 = $request->img3;
+        $header->save();
+        return redirect('/');
     }
 
     /**
@@ -80,6 +94,7 @@ class HeaderController extends Controller
      */
     public function destroy(Header $header)
     {
-        //
+        $header->delete();
+        return redirect()->back();
     }
 }

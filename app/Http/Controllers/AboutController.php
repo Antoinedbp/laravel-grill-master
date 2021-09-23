@@ -14,7 +14,8 @@ class AboutController extends Controller
      */
     public function index()
     {
-        //
+        $dataAbout = About::all();
+        return view('backoffice.about.show', compact('dataAbout'));
     }
 
     /**
@@ -46,7 +47,7 @@ class AboutController extends Controller
      */
     public function show(About $about)
     {
-        //
+        return view('backoffice.about.show', compact('about'));
     }
 
     /**
@@ -57,7 +58,7 @@ class AboutController extends Controller
      */
     public function edit(About $about)
     {
-        //
+        return view('backoffice.about.edit', compact('about'));
     }
 
     /**
@@ -69,7 +70,18 @@ class AboutController extends Controller
      */
     public function update(Request $request, About $about)
     {
-        //
+        request()->validate([
+            "titre"=>["required"],
+            "description1"=>["required"],
+            "description2"=>["required"]
+        ]);
+        
+        $abou = new About();
+        $abou->titre = $request->titre;
+        $abou->description1 = $request->description1;
+        $abou->description2 = $request->description2;
+        $abou->save();
+        return redirect('/');
     }
 
     /**
@@ -80,6 +92,7 @@ class AboutController extends Controller
      */
     public function destroy(About $about)
     {
-        //
+        $about->delete();
+        return redirect()->back();
     }
 }

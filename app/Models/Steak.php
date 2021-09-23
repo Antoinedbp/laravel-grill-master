@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Steak extends Model
 {
     use HasFactory;
+
+    protected $table = "steaks";
+
+    protected $fillable = [
+        "titre",
+        "description",
+        "txtBouton"
+    ];
 }

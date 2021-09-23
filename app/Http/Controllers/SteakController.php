@@ -14,7 +14,8 @@ class SteakController extends Controller
      */
     public function index()
     {
-        //
+        $dataSteak = Steak::all();
+        return view('backoffice.steak.all', compact('dataSteak'));
     }
 
     /**
@@ -46,7 +47,7 @@ class SteakController extends Controller
      */
     public function show(Steak $steak)
     {
-        //
+        return view('backoffice.steak.show', compact('steak'));
     }
 
     /**
@@ -57,7 +58,7 @@ class SteakController extends Controller
      */
     public function edit(Steak $steak)
     {
-        //
+        return view('backoffice.steak.edit', compact('steak'));
     }
 
     /**
@@ -69,7 +70,18 @@ class SteakController extends Controller
      */
     public function update(Request $request, Steak $steak)
     {
-        //
+        request()->validate([
+            "titre"=>["required"],
+            "description"=>["required"],
+            "txtBouton"=>["required"]
+        ]);
+        
+        $steak = new Steak();
+        $steak->titre = $request->titre;
+        $steak->description = $request->description;
+        $steak->txtBouton = $request->txtBouton;
+        $steak->save();
+        return redirect('/');
     }
 
     /**
@@ -80,6 +92,7 @@ class SteakController extends Controller
      */
     public function destroy(Steak $steak)
     {
-        //
+        $steak->delete();
+        return redirect()->back();
     }
 }

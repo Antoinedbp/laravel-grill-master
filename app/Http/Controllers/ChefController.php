@@ -14,7 +14,8 @@ class ChefController extends Controller
      */
     public function index()
     {
-        //
+        $dataChef = Chef::all();
+        return view('backoffice.chefs.all', compact('dataChef'));
     }
 
     /**
@@ -46,7 +47,7 @@ class ChefController extends Controller
      */
     public function show(Chef $chef)
     {
-        //
+        return view('backoffice.chefs.show', compact('chef'));
     }
 
     /**
@@ -57,7 +58,7 @@ class ChefController extends Controller
      */
     public function edit(Chef $chef)
     {
-        //
+        return view('backoffice.chefs.edit', compact('chef'));
     }
 
     /**
@@ -69,7 +70,26 @@ class ChefController extends Controller
      */
     public function update(Request $request, Chef $chef)
     {
-        //
+        request()->validate([
+            "nom"=>["required"],
+            "icon1"=>["required"],
+            "icon2"=>["required"],
+            "icon3"=>["required"],
+            "icon4"=>["required"],
+            "icon5"=>["required"],
+            "icon6"=>["required"]
+        ]);
+        
+        $chef = new Chef();
+        $chef->nom = $request->nom;
+        $chef->icon1 = $request->icon1;
+        $chef->icon2 = $request->icon2;
+        $chef->icon3 = $request->icon3;
+        $chef->icon4 = $request->icon4;
+        $chef->icon5 = $request->icon5;
+        $chef->icon6 = $request->icon6;
+        $chef->save();
+        return redirect('/');
     }
 
     /**
@@ -80,6 +100,7 @@ class ChefController extends Controller
      */
     public function destroy(Chef $chef)
     {
-        //
+        $chef->delete();
+        return redirect()->back();
     }
 }

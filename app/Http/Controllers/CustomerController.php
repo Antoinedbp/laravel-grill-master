@@ -14,7 +14,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        $dataCustomer = Customer::all();
+        return view('backoffice.customers.all', compact('dataCustomer'));
     }
 
     /**
@@ -46,7 +47,7 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        //
+        return view('backoffice.customers.show', compact('customer'));
     }
 
     /**
@@ -57,7 +58,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        return view('backoffice.customers.edit', compact('customer'));
     }
 
     /**
@@ -69,7 +70,18 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        //
+        request()->validate([
+            "img"=>["required"],
+            "nom"=>["required"],
+            "description"=>["required"]
+        ]);
+        
+        $chef = new Customer();
+        $chef->img = $request->img;
+        $chef->nom = $request->nom;
+        $chef->description = $request->description;
+        $chef->save();
+        return redirect('/');
     }
 
     /**
@@ -80,6 +92,7 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
+        $customer->delete();
+        return redirect()->back();
     }
 }
