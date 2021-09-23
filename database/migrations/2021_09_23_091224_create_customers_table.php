@@ -18,7 +18,6 @@ class CreateCustomersTable extends Migration
             $table->string('img');
             $table->string('nom');
             $table->text('description');
-            $table->string('note');
             $table->timestamps();
         });
     }
