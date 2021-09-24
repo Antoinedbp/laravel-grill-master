@@ -16,6 +16,7 @@ class ChefSeeder extends Seeder
     {
         DB::table('chefs')->insert([
             [
+                "img" => "assets/img/team/1.jpg",
                 "nom" => "John Doe",
                 "icon1" => "fa fa-twitter",
                 "icon2" => "fa fa-pinterest",
@@ -25,6 +26,7 @@ class ChefSeeder extends Seeder
                 "icon6" => "fa fa-linkedin",
             ],
             [
+                "img" => "assets/img/team/2.jpg",
                 "nom" => "Barry Scott",
                 "icon1" => "fa fa-twitter",
                 "icon2" => "fa fa-pinterest",
@@ -34,6 +36,7 @@ class ChefSeeder extends Seeder
                 "icon6" => "fa fa-linkedin",
             ],
             [
+                "img" => "assets/img/team/3.jpg",
                 "nom" => "Tom Smooth",
                 "icon1" => "fa fa-twitter",
                 "icon2" => "fa fa-pinterest",
@@ -43,6 +46,7 @@ class ChefSeeder extends Seeder
                 "icon6" => "fa fa-linkedin",
             ],
             [
+                "img" => "assets/img/team/4.jpg",
                 "nom" => "Harvey Wallace",
                 "icon1" => "fa fa-twitter",
                 "icon2" => "fa fa-pinterest",

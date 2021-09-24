@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Chef;
+use App\Models\Customer;
+use App\Models\Header;
+use App\Models\Steak;
+use App\Models\Titre;
 use Illuminate\Http\Request;
 
-class AboutController extends Controller
+class BackController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +19,13 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $dataAbout = About::all();
-        return view('backoffice.about.all', compact('dataAbout'));
+        $titres = Titre::all();
+        $headers = Header::all();
+        $abouts = About::all();
+        $steaks = Steak::all();
+        $chefs = Chef::all();
+        $customers = Customer::all();
+        return view('pages.mainBO', compact('titres', 'headers', 'abouts', 'steaks', 'chefs', 'customers'));
     }
 
     /**
@@ -42,57 +52,46 @@ class AboutController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\About  $about
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(About $about)
+    public function show($id)
     {
-        return view('backoffice.about.show', compact('about'));
+        $var = $id;
+        return view('pages.mainBO', compact('var'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\About  $about
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(About $about)
+    public function edit($id)
     {
-        return view('backoffice.about.edit', compact('about'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\About  $about
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, About $about)
+    public function update(Request $request, $id)
     {
-        request()->validate([
-            "titre"=>["required"],
-            "description1"=>["required"],
-            "description2"=>["required"]
-        ]);
-        
-        $abou = new About();
-        $abou->titre = $request->titre;
-        $abou->description1 = $request->description1;
-        $abou->description2 = $request->description2;
-        $abou->save();
-        return redirect('/');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\About  $about
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(About $about)
+    public function destroy($id)
     {
-        $about->delete();
-        return redirect()->back();
+        //
     }
 }

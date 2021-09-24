@@ -6,10 +6,16 @@
   <div class="globaleHome" >
     <div class="row globale2">
 
-      <div class="col-12 skills">
+      <div class="col-6 skills">
+        <h3 class="text-center">Modification TITRES</h3>
+        <a href="{{route('titres.index')}}">
+          <button class="btn btn-danger"type="submit">DIRECTION TITRES</button>
+        </a>
+      </div>
+      <div class="col-6 skills">
         <h3 class="text-center">Modification HEADER</h3>
-        <a href="{{route('titres.index')}}"> 
-          <button class="btn btn-danger"type="submit">DIRECTION TITRE</button>
+        <a href="{{route('headers.index')}}">
+          <button class="btn btn-danger"type="submit">DIRECTION HEADER</button>
         </a>
       </div>
       <div class="col-6 about">
@@ -19,21 +25,21 @@
         </a>
       </div>
       <div class="col-6 contact">
-        <h3 class="text-center">Modification CONTACT</h3>
-        <a href="{{route('contacts.index')}}">
-          <button class="btn btn-danger"type="submit">DIRECTION CONTACT</button>
+        <h3 class="text-center">Modification STEAK</h3>
+        <a href="{{route('steaks.index')}}">
+          <button class="btn btn-danger"type="submit">DIRECTION STEAK</button>
         </a>
       </div>
       <div class="col-6 portfolio">
-          <h3 class="text-center">Modification PORTFOLIO</h3>
-          <a href="{{route('portfolios.index')}}">
-            <button class="btn btn-danger"type="submit">DIRECTION PORTFOLIO</button>
+          <h3 class="text-center">Modification CHEFS</h3>
+          <a href="{{route('chefs.index')}}">
+            <button class="btn btn-danger"type="submit">DIRECTION CHEFS</button>
           </a>
       </div>
       <div class="col-6 skills">
-          <h3 class="text-center">Modification TITRE</h3>
-          <a href="{{route('titres.index')}}"> 
-            <button class="btn btn-danger"type="submit">DIRECTION TITRE</button>
+          <h3 class="text-center">Modification CUSTOMERS</h3>
+          <a href="{{route('customers.index')}}"> 
+            <button class="btn btn-danger"type="submit">DIRECTION CUSTOMERS</button>
           </a>
       </div>
     </div>

@@ -16,10 +16,11 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
+    <link href="{{asset('assets/css/styles.css')}}" rel="stylesheet" />
     
     <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/nav.css')}}">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
@@ -71,6 +72,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="{{asset('js/scripts.js')}}"></script>
+    <script src="{{asset('js/app.js')}}"></script>
+    <script src="{{asset('js/tailwind.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugins.js')}}"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="{{asset('assets/js/init.js')}}"></script>
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <!-- * *                               SB Forms JS                               * *-->
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
